@@ -25,7 +25,8 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: '/admin/login',
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  trustHost: true,
+  secret: process.env.NEXTAUTH_SECRET || "abhproperty_super_secret_key_2026_secure",
 };
 
 const handler = NextAuth(authOptions);
