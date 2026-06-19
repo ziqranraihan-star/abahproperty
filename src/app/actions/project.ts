@@ -40,6 +40,7 @@ export async function createProject(formData: FormData) {
     const price = formData.get('price') as string | null;
     const location = formData.get('location') as string | null;
     const features = formData.get('features') as string | null;
+    const youtubeUrl = formData.get('youtubeUrl') as string | null;
     
     // Handle image upload
     const images: string[] = [];
@@ -60,6 +61,7 @@ export async function createProject(formData: FormData) {
         location,
         features,
         images: JSON.stringify(images),
+        youtubeUrl: youtubeUrl || null,
       },
     });
 
@@ -103,6 +105,7 @@ export async function updateProject(id: string, formData: FormData) {
     const price = formData.get('price') as string | null;
     const location = formData.get('location') as string | null;
     const features = formData.get('features') as string | null;
+    const youtubeUrl = formData.get('youtubeUrl') as string | null;
     
     const existingProject = await prisma.project.findUnique({ where: { id } });
     if (!existingProject) throw new Error('Project not found');
@@ -139,6 +142,7 @@ export async function updateProject(id: string, formData: FormData) {
         location,
         features,
         images: JSON.stringify(images),
+        youtubeUrl: youtubeUrl !== null ? youtubeUrl : undefined,
       },
     });
 

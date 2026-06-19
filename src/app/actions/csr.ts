@@ -8,6 +8,7 @@ export async function createCsr(formData: FormData) {
   try {
     const title = formData.get('title') as string;
     const description = formData.get('description') as string;
+    const youtubeUrl = formData.get('youtubeUrl') as string | null;
     
     // Handle image upload
     const images: string[] = [];
@@ -23,6 +24,7 @@ export async function createCsr(formData: FormData) {
         title,
         description,
         images: JSON.stringify(images),
+        youtubeUrl: youtubeUrl || null,
       },
     });
 
@@ -56,6 +58,7 @@ export async function updateCsr(id: string, formData: FormData) {
   try {
     const title = formData.get('title') as string;
     const description = formData.get('description') as string;
+    const youtubeUrl = formData.get('youtubeUrl') as string | null;
     
     const existingCsr = await prisma.csrActivity.findUnique({ where: { id } });
     if (!existingCsr) throw new Error('CSR Activity not found');
@@ -87,6 +90,7 @@ export async function updateCsr(id: string, formData: FormData) {
         title,
         description,
         images: JSON.stringify(images),
+        youtubeUrl: youtubeUrl !== null ? youtubeUrl : undefined,
       },
     });
 

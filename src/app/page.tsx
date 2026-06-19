@@ -14,7 +14,7 @@ export default async function HomePage() {
         {/* Background Image Placeholder */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80)' }}
+          style={{ backgroundImage: 'url(/hero-bg.png)' }}
         >
           <div className="absolute inset-0 bg-primary/60 mix-blend-multiply" />
         </div>
@@ -47,14 +47,14 @@ export default async function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Broker */}
+            {/* Real Estate */}
             <div className="bg-white dark:bg-primary rounded-2xl p-8 shadow-xl hover:-translate-y-2 transition-transform duration-300 border border-gray-100 dark:border-gray-800">
               <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-6 text-secondary">
-                <Home size={32} />
+                <Building2 size={32} />
               </div>
-              <h3 className="text-2xl font-bold text-primary dark:text-white mb-4">Broker Properti</h3>
+              <h3 className="text-2xl font-bold text-primary dark:text-white mb-4">Real Estate</h3>
               <p className="text-text-muted mb-6">
-                Kami memasarkan produk-produk properti pilihan dengan harga terbaik dan proses transaksi yang aman & transparan.
+                Pengembangan kawasan perumahan dan unit komersial eksklusif dengan fasilitas lengkap dan nilai investasi tinggi.
               </p>
               <Link href="/projects" className="inline-flex items-center text-secondary font-semibold hover:text-primary transition-colors">
                 Selengkapnya <ArrowRight size={16} className="ml-2" />
@@ -75,14 +75,14 @@ export default async function HomePage() {
               </Link>
             </div>
 
-            {/* Real Estate */}
+            {/* Broker */}
             <div className="bg-white dark:bg-primary rounded-2xl p-8 shadow-xl hover:-translate-y-2 transition-transform duration-300 border border-gray-100 dark:border-gray-800">
               <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-6 text-secondary">
-                <Building2 size={32} />
+                <Home size={32} />
               </div>
-              <h3 className="text-2xl font-bold text-primary dark:text-white mb-4">Real Estate</h3>
+              <h3 className="text-2xl font-bold text-primary dark:text-white mb-4">Broker Properti</h3>
               <p className="text-text-muted mb-6">
-                Pengembangan kawasan perumahan dan unit komersial eksklusif dengan fasilitas lengkap dan nilai investasi tinggi.
+                Kami memasarkan produk-produk properti pilihan dengan harga terbaik dan proses transaksi yang aman & transparan.
               </p>
               <Link href="/projects" className="inline-flex items-center text-secondary font-semibold hover:text-primary transition-colors">
                 Selengkapnya <ArrowRight size={16} className="ml-2" />

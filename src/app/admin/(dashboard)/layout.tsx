@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, LayoutDashboard, Briefcase, Hammer, Building2, HeartHandshake, LogOut, Menu, X } from 'lucide-react';
+import { Home, LayoutDashboard, Briefcase, Hammer, Building2, HeartHandshake, LogOut, Menu, X, Handshake } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -17,6 +17,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: 'Layanan Renovasi', href: '/admin/renovasi', icon: Hammer },
     { name: 'Lowongan Karir', href: '/admin/karir', icon: Briefcase },
     { name: 'Kegiatan CSR', href: '/admin/csr', icon: HeartHandshake },
+    { name: 'Pengajuan Kerjasama', href: '/admin/kerjasama', icon: Handshake },
   ];
 
   return (

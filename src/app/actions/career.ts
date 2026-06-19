@@ -10,6 +10,7 @@ export async function createCareer(formData: FormData) {
     const requirements = formData.get('requirements') as string;
     const emailTo = formData.get('emailTo') as string;
     const isActive = formData.get('isActive') === 'true';
+    const images = formData.get('images') as string | null;
 
     const career = await prisma.career.create({
       data: {
@@ -18,12 +19,12 @@ export async function createCareer(formData: FormData) {
         requirements,
         emailTo,
         isActive,
+        images: images || null,
       },
     });
 
     revalidatePath('/admin/karir');
     revalidatePath('/careers');
-    
     return { success: true, career };
   } catch (error: any) {
     return { success: false, error: error.message };
@@ -54,6 +55,7 @@ export async function updateCareer(id: string, formData: FormData) {
     const requirements = formData.get('requirements') as string;
     const emailTo = formData.get('emailTo') as string;
     const isActive = formData.get('isActive') === 'true';
+    const images = formData.get('images') as string | null;
 
     const career = await prisma.career.update({
       where: { id },
@@ -63,12 +65,12 @@ export async function updateCareer(id: string, formData: FormData) {
         requirements,
         emailTo,
         isActive,
+        images: images || undefined,
       },
     });
 
     revalidatePath('/admin/karir');
     revalidatePath('/careers');
-    
     return { success: true, career };
   } catch (error: any) {
     return { success: false, error: error.message };

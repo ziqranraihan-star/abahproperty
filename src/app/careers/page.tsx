@@ -27,24 +27,34 @@ export default async function CareersPage() {
                 <p className="text-gray-500">Saat ini belum ada lowongan yang tersedia. Silakan cek kembali nanti.</p>
               </div>
             ) : (
-              careers.map((career) => (
-                <div key={career.id} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h3 className="text-xl font-bold text-primary mb-2">{career.title}</h3>
-                      <p className="text-text-muted mb-4 whitespace-pre-wrap">{career.requirements}</p>
-                    </div>
-                    <div className="w-12 h-12 bg-secondary/20 text-secondary rounded-full flex items-center justify-center flex-shrink-0 ml-4">
-                      <Briefcase size={24} />
+              careers.map((career) => {
+                const careerImages = JSON.parse(career.images || '[]');
+                return (
+                  <div key={career.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow overflow-hidden">
+                    {careerImages.length > 0 && (
+                      <div className="aspect-video overflow-hidden">
+                        <img src={careerImages[0]} alt={career.title} className="w-full h-full object-cover" />
+                      </div>
+                    )}
+                    <div className="p-8">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <h3 className="text-xl font-bold text-primary mb-2">{career.title}</h3>
+                          <p className="text-text-muted mb-4 whitespace-pre-wrap">{career.requirements}</p>
+                        </div>
+                        <div className="w-12 h-12 bg-secondary/20 text-secondary rounded-full flex items-center justify-center flex-shrink-0 ml-4">
+                          <Briefcase size={24} />
+                        </div>
+                      </div>
+                      <p className="text-gray-600 mb-6 whitespace-pre-wrap">{career.description}</p>
+                      <div className="bg-gray-50 p-4 rounded-lg flex items-center">
+                        <Mail className="text-secondary mr-3" />
+                        <span className="text-sm text-gray-700">Kirim CV ke: <strong>{career.emailTo}</strong></span>
+                      </div>
                     </div>
                   </div>
-                  <p className="text-gray-600 mb-6 whitespace-pre-wrap">{career.description}</p>
-                  <div className="bg-gray-50 p-4 rounded-lg flex items-center">
-                    <Mail className="text-secondary mr-3" />
-                    <span className="text-sm text-gray-700">Kirim CV ke: <strong>{career.emailTo}</strong></span>
-                  </div>
-                </div>
-              ))
+                );
+              })
             )}
           </div>
 

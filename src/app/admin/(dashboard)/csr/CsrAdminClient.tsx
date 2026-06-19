@@ -118,6 +118,17 @@ export default function CsrAdminClient({ initialCsr }: { initialCsr: any[] }) {
                   <input type="file" name="images" accept="image/*" required={!editingCsr} />
                 </div>
               </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Link Video YouTube (opsional)</label>
+                <input
+                  name="youtubeUrl"
+                  type="url"
+                  defaultValue={editingCsr?.youtubeUrl || ''}
+                  className="w-full p-3 border border-gray-200 rounded-lg outline-none focus:border-primary"
+                  placeholder="https://www.youtube.com/watch?v=..."
+                />
+                <p className="text-xs text-gray-400 mt-1">Masukkan link YouTube lengkap jika kegiatan ini memiliki video dokumentasi.</p>
+              </div>
               <div className="pt-6 flex justify-end space-x-3">
                 <button type="button" onClick={() => setIsModalOpen(false)} className="px-5 py-2.5 text-gray-600 font-medium hover:bg-gray-50 rounded-lg">Batal</button>
                 <button type="submit" disabled={isLoading} className="px-5 py-2.5 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 disabled:opacity-50">

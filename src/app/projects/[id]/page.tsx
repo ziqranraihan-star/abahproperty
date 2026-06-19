@@ -73,6 +73,26 @@ export default async function ProjectDetailPage({ params }: { params: { id: stri
                 </div>
               </div>
             )}
+
+            {/* YouTube Video Embed */}
+            {project.youtubeUrl && (() => {
+              const ytMatch = project.youtubeUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/);
+              const ytId = ytMatch ? ytMatch[1] : null;
+              return ytId ? (
+                <div>
+                  <h2 className="text-2xl font-bold text-primary mb-6 font-[family-name:var(--font-outfit)]">Video Tur Properti</h2>
+                  <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${ytId}`}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      title={project.title}
+                    />
+                  </div>
+                </div>
+              ) : null;
+            })()}
           </div>
 
           {/* Sidebar */}

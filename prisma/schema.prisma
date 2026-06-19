@@ -66,36 +66,65 @@ enum ProjectStatus {
 }
 
 model Project {
-  id          String       @id @default(cuid())
+  id          String        @id @default(cuid())
   title       String
-  description String       @db.Text
+  description String        @db.Text
   type        ProjectType
-  status      ProjectStatus? // ONGOING or COMPLETED for Real Estate
+  status      ProjectStatus?
   price       String?
   location    String?
-  features    String?      @db.Text // JSON string or text for features
-  images      String       @db.Text // JSON array of image URLs
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
+  features    String?       @db.Text
+  images      String        @db.Text
+  youtubeUrl  String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
 }
 
 model Career {
-  id          String   @id @default(cuid())
-  title       String
-  description String   @db.Text
-  requirements String  @db.Text
-  emailTo     String
-  isActive    Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id           String   @id @default(cuid())
+  title        String
+  description  String   @db.Text
+  requirements String   @db.Text
+  emailTo      String
+  images       String?  @db.Text
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
 
 model CsrActivity {
   id          String   @id @default(cuid())
   title       String
   description String   @db.Text
-  images      String   @db.Text // JSON array of image URLs
+  images      String   @db.Text
+  youtubeUrl  String?
   date        DateTime @default(now())
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+model LandSubmission {
+  id              String   @id @default(cuid())
+  ownerName       String
+  phone           String
+  email           String
+  mapsLink        String?
+  landArea        String
+  legality        String
+  cooperationType String   @db.Text
+  meetingDate     String?
+  photos          String?  @db.Text
+  createdAt       DateTime @default(now())
+}
+
+model InvestmentSubmission {
+  id               String   @id @default(cuid())
+  ownerName        String
+  phone            String
+  email            String
+  projectInterest  String
+  capitalRange     String
+  cooperationTypes String   @db.Text
+  meetingDate      String?
+  createdAt        DateTime @default(now())
 }
