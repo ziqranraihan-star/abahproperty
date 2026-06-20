@@ -14,7 +14,7 @@ export default async function HomePage() {
         {/* Background Image Placeholder */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(/hero-bg.png)' }}
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80)' }}
         >
           <div className="absolute inset-0 bg-primary/60 mix-blend-multiply" />
         </div>
