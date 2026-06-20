@@ -29,7 +29,7 @@ export default function BusinessPage() {
               <Link href="/projects" className="inline-block px-6 py-3 bg-secondary text-primary font-semibold rounded-full hover-scale">Lihat Proyek Real Estate</Link>
             </div>
             <div className="order-1 lg:order-2 aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-              <img src="https://images.unsplash.com/photo-1613490900233-141c51da8a61?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Real Estate" className="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Real Estate" className="w-full h-full object-cover" />
             </div>
           </div>
 
